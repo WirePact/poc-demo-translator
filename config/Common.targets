@@ -1,7 +1,9 @@
 <Project>
 
     <PropertyGroup>
-        <Authors>WirePact Authors</Authors>
+        <LangVersion>9</LangVersion>
+        <Nullable>enable</Nullable>
+        <Authors>Christoph Bühler</Authors>
         <Owner>WirePact</Owner>
     </PropertyGroup>
 

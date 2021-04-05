@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  legacy:
+    image: ghcr.io/wirepact/poc-showcase-app/legacy:latest
+  envoy:
+    image: envoyproxy/envoy-alpine:v1.17-latest
+    command: envoy -c /etc/envoy/envoy.yaml --component-log-level ext_authz:trace
+    volumes:
+      - ./envoy-config.dev.yaml:/etc/envoy/envoy.yaml:ro
+    links:
+      - legacy
+    ports:
+      - 8080:8080
+      - 9090:9090
