@@ -8,9 +8,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="DotnetKubernetesClient" Version="1.1.6" />
+        <PackageReference Include="DotnetKubernetesClient" Version="1.1.7" />
         <PackageReference Include="Grpc.AspNetCore.Server" Version="2.36.0" />
-        <PackageReference Include="WirePact.Translator.Base" Version="1.0.0" />
+        <PackageReference Include="WirePact.Translator.Base" Version="1.0.1" />
         <PackageReference Include="Zitadel" Version="2.2.2" />
     </ItemGroup>
 
