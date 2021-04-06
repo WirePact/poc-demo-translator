@@ -20,6 +20,8 @@ class Build : NukeBuild
     [Parameter("Configuration to build - Default is 'Debug' (local) or 'Release' (server)")]
     readonly Configuration Configuration = IsLocalBuild ? Configuration.Debug : Configuration.Release;
 
+    [Parameter("Version of the package to build.")] readonly string Version = string.Empty;
+
     [Solution] readonly Solution Solution;
 
     AbsolutePath SourceDirectory => RootDirectory / "src";
@@ -55,11 +57,23 @@ class Build : NukeBuild
             .EnableNoRestore()
             .EnableNoBuild()));
 
+    #region Application Project
+
+    Target Publish => _ => _
+        .DependsOn(Clean, Compile)
+        .Executes(() => DotNetPublish(s => s
+            .SetProject(Solution.GetProject("WirePact.PoC.Translator"))
+            .SetVersion(Version == string.Empty ? "0.0.0" : Version)
+            .SetOutput(ArtifactsDirectory)
+            .SetConfiguration(Configuration)
+            .EnableNoBuild()
+            .EnableNoRestore()));
+
+    #endregion
+
     #region Library Project
 
     const short MaxReleaseNoteLength = 30000;
-
-    [Parameter("Version of the nuget package to build.")] readonly string Version = string.Empty;
 
     [Parameter("Optional release notes to append.")] readonly string ReleaseNotes = string.Empty;
 
