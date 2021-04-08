@@ -8,10 +8,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="DotnetKubernetesClient" Version="1.1.7" />
+        <PackageReference Include="DotnetKubernetesClient" Version="1.1.8" />
         <PackageReference Include="Grpc.AspNetCore.Server" Version="2.36.0" />
-        <PackageReference Include="WirePact.Translator.Base" Version="1.0.1" />
-        <PackageReference Include="Zitadel" Version="2.2.3" />
+        <PackageReference Include="WirePact.Translator.Base" Version="1.0.2" />
+        <PackageReference Include="Zitadel" Version="2.2.4" />
     </ItemGroup>
 
 </Project>
