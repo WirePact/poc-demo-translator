@@ -11,7 +11,7 @@
         <PackageReference Include="DotnetKubernetesClient" Version="1.1.8" />
         <PackageReference Include="Grpc.AspNetCore.Server" Version="2.36.0" />
         <PackageReference Include="WirePact.Translator.Base" Version="1.0.2" />
-        <PackageReference Include="Zitadel" Version="2.2.4" />
+        <PackageReference Include="Zitadel" Version="2.2.5" />
     </ItemGroup>
 
 </Project>
