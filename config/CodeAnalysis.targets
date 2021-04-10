@@ -1,14 +1,7 @@
 <Project>
 
-    <ItemGroup>
-        <PackageReference Include="Roslynator.Analyzers" Version="3.1.0" PrivateAssets="All" />
-        <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.333" PrivateAssets="All" />
-        <AdditionalFiles Include="$(MSBuildThisFileDirectory)/stylecop.json" />
-    </ItemGroup>
-
-    <PropertyGroup>
-        <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)/project.ruleset</CodeAnalysisRuleSet>
-        <TreatWarningsAsErrors Condition="'$(Configuration)' == 'Release'">true</TreatWarningsAsErrors>
-    </PropertyGroup>
+    <Target Name="FSharpLint" AfterTargets="BeforeBuild">
+        <Exec Command="dotnet fsharplint -f msbuild lint $(MSBuildProjectFullPath)" ConsoleToMSBuild="true" IgnoreExitCode="false"/>
+    </Target>
 
 </Project>

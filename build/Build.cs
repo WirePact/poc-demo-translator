@@ -39,7 +39,8 @@ class Build : NukeBuild
 
     Target Restore => _ => _
         .Executes(() => DotNetRestore(s => s
-            .SetProjectFile(Solution)));
+            .SetProjectFile(Solution)))
+        .Executes(() => DotNet("tool restore"));
 
     Target Compile => _ => _
         .DependsOn(Restore)
