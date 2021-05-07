@@ -10,7 +10,7 @@ COPY . ./
 RUN ./build.sh --no-logo --target Publish --configuration Release --version ${VERSION}
 
 ### Deploy
-FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS final
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS final
 
 LABEL org.opencontainers.image.source=https://github.com/WirePact/poc-demo-translator
 
